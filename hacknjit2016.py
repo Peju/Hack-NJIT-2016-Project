@@ -19,9 +19,9 @@ def gameMain(wordBank):
     start = time.time()
     wordQuiz = wordBank[random.randint(0,(len(wordBank)-1))]
     wordType = input('Type the word '+ wordQuiz + ': ')
-    if wordType == wordQuiz and time.time()-start < 7:
+    if wordType == wordQuiz and time.time()-start < 3:
         lst[0] += 1
-    elif time.time()-start >= 7:
+    elif time.time()-start >= 3:
         print('STRIKE! Too Slow!')
         lst[1] += 1
     else:
@@ -46,8 +46,8 @@ def rsg():
     print('Go!')
     time.sleep(1)
 
-name = input('Enter a 3 character ID: ')
-print("Type the word then press enter in under 7 seconds!")
+name = input('Enter a character ID: ')
+print("Type the word then press enter in under 3 seconds!")
 time.sleep(2)
 rsg()
 
@@ -59,13 +59,13 @@ while stat == True:
     strike += lst[1]
     if strike == 3:
         time.sleep(.5)
-        print('Game Over!')
+        print('Game Over!\n')
         time.sleep(2)
         print('Your Score: ' + str(score))
         highScore(name,score,open2lst,open2)
         time.sleep(2)
         break
-print('Highscores')
+print('\nHighscores:')
 time.sleep(2)
 for line in open2lst:
     print(line, end='')
