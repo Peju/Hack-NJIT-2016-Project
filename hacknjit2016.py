@@ -28,8 +28,8 @@ score = 0
 print("Type the word then press enter!")
 while stat == true:
     lst = gameMain()
-    score += gameMain[0]
-    strike += gameMain[1]
+    score += lst[0]
+    strike += lsts[1]
     if strike == 3:
         break
 print('Game Over!')
