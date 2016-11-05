@@ -5,6 +5,9 @@ openPlz = open('wordbank.txt','r')
 readPlz = openPlz.read()
 wordBank = readPlz.split()
 
+open2 = open('highscore.txt','r+')
+open2lst = open2.readlines()
+
 stat = True
 strike = 0
 score = 0
@@ -24,7 +27,16 @@ def gameMain(wordBank):
     else:
         print('STRIKE! Watch your spelling!')
         lst[1] += 1
-    return lst    
+    return lst
+
+def highScore(name,score,highScoreLst,zFile):    
+    for line in highScoreLst:
+        if score >= int(line[-2:]): 
+            lst.insert(lst.index(line),name+'-'+str(score))
+            lst.pop()
+            zFile.seek(0,0)
+            zFile.writelines(lst)
+
 def rsg():
     print('Ready?')
     time.sleep(1)
@@ -39,19 +51,29 @@ time.sleep(3)
 rsg()
 
 while stat == True:
+    name = input('Enter a 3 character ID')
     lst = gameMain(wordBank)
     score += lst[0]
     strike += lst[1]
     if strike == 3:
+        print('Game Over!')
+        print('Your Score: ' + str(score))
+        highScore(name,score,open2lst)
         break
+print('Highscores')
+for line in open2lst:
+    print(line)
+    time.sleep(1.5)
+        
 
-print('Game Over!')
-print('Your Score: ' + str(score))
+
 
 openPlz.close()
-
+open2.close()
 '''
-for i in splitHigh:
+
+
+    
 '''
 <<<<<<< HEAD
 =======
