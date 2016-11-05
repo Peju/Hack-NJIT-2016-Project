@@ -1,25 +1,38 @@
 import time
 import random
 
+def gameMain():
+    #Primary game loop. Returns a lst:
+    #lst[0] = added points, lst[1] = added strikes
+
+    lst = [0,0]
+    start = time.time()
+    while time.time()-start < 7:
+        wordQuiz = wordBank[random.randint(0,len(wordBank))]
+        wordType = input('Type the word '+ wordQuiz)
+    if wordType == wordQuiz:
+        lst[0] += 1
+    else:
+        lst[1] += 1
+    return lst    
+
 
 openPlz = ('wordbank.txt',"r")
 readPlz = openPlz.read()
-
 wordBank = readPlz.split()
 
 #JJ
+stat = true
 strike = 0
 score = 0
 print("Type the word then press enter!")
-while time.time()-start < 7:
-    start = time.time()
-    wordQuiz = wordBank[random.randint(0,len(wordBank))]
-    wordType = input('Type the word '+ wordQuiz)
-    if wordType == wordQuiz:
-        score += 1
-        continue
-    strike += 1
+while stat == true:
+    lst = gameMain()
+    score += gameMain[0]
+    strike += gameMain[1]
     if strike == 3:
-        print('Game Over!')
-        print('Your Score: ' + str(score))
         break
+print('Game Over!')
+print('Your Score: ' + str(score))
+
+#High Score Input/Comparisign
