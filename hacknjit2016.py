@@ -10,3 +10,4 @@ print("Game over!")
 
 openPlz = (wordbank.txt,"r")
 readPlz = openPlz.read()
+#fdsfdsa
