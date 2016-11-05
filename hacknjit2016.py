@@ -28,7 +28,7 @@ print("Type the word then press enter!")
 while stat == true:
     lst = gameMain(wordBank)
     score += lst[0]
-    strike += lsts[1]
+    strike += lst[1]
     if strike == 3:
         break
 
