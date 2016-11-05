@@ -18,7 +18,11 @@ def gameMain(wordBank):
     wordType = input('Type the word '+ wordQuiz + ': ')
     if wordType == wordQuiz and time.time()-start < 7:
         lst[0] += 1
+    elif time.time()-start >= 7:
+        print('STRIKE! Too Slow!')
+        lst[1] += 1
     else:
+        print('STRIKE! Watch your spelling!')
         lst[1] += 1
     return lst    
 def rsg():
@@ -44,9 +48,9 @@ while stat == True:
 print('Game Over!')
 print('Your Score: ' + str(score))
 
-
 openPlz.close()
 
-#AAAA:10
-
+'''
+for i in splitHigh:
+'''
 
