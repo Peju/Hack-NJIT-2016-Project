@@ -32,10 +32,10 @@ def gameMain(wordBank):
 def highScore(name,score,highScoreLst,zFile):    
     for line in highScoreLst:
         if score >= int(line[-3:-1]): 
-            lst.insert(lst.index(line),name+'-'+str(score)+'\n')
-            lst.pop()
+            highScoreLst.insert(highScoreLst.index(line),name+'-'+str(score)+'\n')
+            highScoreLst.pop()
             zFile.seek(0,0)
-            zFile.writelines(lst)
+            zFile.writelines(highScoreLst)
 
 def rsg():
     print('Ready?')
@@ -49,6 +49,8 @@ name = input('Enter a 3 character ID: ')
 print("Type the word then press enter in under 7 seconds!")
 time.sleep(2)
 rsg()
+
+#MainState
 
 while stat == True:
     lst = gameMain(wordBank)
@@ -65,7 +67,7 @@ while stat == True:
 print('Highscores')
 time.sleep(2)
 for line in open2lst:
-    print(line)
+    print(line, end='')
     time.sleep(1.5)
 time.sleep(5)
 
