@@ -53,3 +53,7 @@ openPlz.close()
 '''
 for i in splitHigh:
 '''
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
