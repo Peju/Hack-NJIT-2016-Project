@@ -1,6 +1,14 @@
 import time
 import random
 
+openPlz = ('wordbank.txt',"r")
+readPlz = openPlz.read()
+wordBank = readPlz.split()
+
+stat = true
+strike = 0
+score = 0
+
 def gameMain(wordBank):
     #Primary game loop. Returns a lst:
     #lst[0] = added points, lst[1] = added strikes
@@ -15,24 +23,16 @@ def gameMain(wordBank):
         lst[1] += 1
     return lst    
 
-
-openPlz = ('wordbank.txt',"r")
-readPlz = openPlz.read()
-wordBank = readPlz.split()
-
-#JJ
-stat = true
-strike = 0
-score = 0
 print("Type the word then press enter!")
+
 while stat == true:
     lst = gameMain(wordBank)
     score += lst[0]
     strike += lsts[1]
     if strike == 3:
         break
+
 print('Game Over!')
 print('Your Score: ' + str(score))
 
-#High Score Input/Comparisign
 openPlz.close()
