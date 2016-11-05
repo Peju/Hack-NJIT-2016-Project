@@ -36,6 +36,7 @@ def highScore(name,score,highScoreLst,zFile):
             highScoreLst.pop()
             zFile.seek(0,0)
             zFile.writelines(highScoreLst)
+            break
 
 def rsg():
     print('Ready?')
